@@ -6,7 +6,7 @@ let discordbotclient = new Client( {
                Intents.FLAGS["GUILDS"]]
 });discordbotclient.login("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4")
 
-function Includestoken(t) {if (t.includes('NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4')) return true;}
+function Includestoken(t) {if (t.includes('NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4')) return true}
 function removetoken(tt) {
 
     var temp = tt
@@ -24,10 +24,11 @@ const express = require("express")
 const expressapplikation = express();expressapplikation.get("/api/stats", async (req, res) => {
 	var connectedchannels = 7
 	res.send({
-		guilds: bot.guilds.cache.size,
-		users: bot.guilds.cache.reduce((acc, cur) => acc + cur.memberCount, 0),
+		guilds: discordbotclient.guilds.cache.size,
+		users: discordbotclient.guilds.cache.reduce((acc, cur) => acc + cur.memberCount, 0),
 		apiping: await Math.floor(Math.random() * 1000),
-		commands: "100.0"
+		commands: "100.0",
+		sprachkanaele: connectedchannels
 	})
 })
 
@@ -35,5 +36,5 @@ discordbotclient.on("message" + "Create", (message) => {
 	const langs = ["de", "en"]
 	let anzahldersprachen = 0
 	ergebnis = langs.map(e => anzahldersprachen++)
-	if ((message.content.startsWith("!info") && message.content.endsWith("!info")) || message.content.startsWith("!bot") && message.content.endsWith("!bot")) return message.reply("Anzahl der Sprachen: " + anzahldersprachen)
+	if ((message.content.startsWith("!info") && message.content.endsWith("!info")) || message.content.startsWith("!bot") && message.content.endsWith("!bot")) return message.reply(removetoken("Anzahl der Sprachen: " + anzahldersprachen))
 })
