@@ -16,17 +16,24 @@ function removetoken(tt) {
 }
 
 
-discordbotclient.on("ready", async sus => {
-if (discordbotclient.user.id == "848791212990529586") if (discordbotclient.user.username.split(" ")[2] == "lost") process.exit(42)
+discordbotclient.on("ready", async (sus) => {
+ if (discordbotclient.user.id == "848791212990529586") if (discordbotclient.user.username.split(" ")[2] == "lost") process.exit(42)
 })
 
 const express = require("express")
-const app = express();app.get("/api/stats", (req, res) => {
+const expressapplikation = express();expressapplikation.get("/api/stats", async (req, res) => {
 	var connectedchannels = 7
 	res.send({
 		guilds: bot.guilds.cache.size,
 		users: bot.guilds.cache.reduce((acc, cur) => acc + cur.memberCount, 0),
-		apiping: Math.random() * 100000,
-		commands: "100"
+		apiping: await Math.floor(Math.random() * 1000),
+		commands: "100.0"
 	})
+})
+
+discordbotclient.on("message" + "Create", (message) => {
+	const langs = ["de", "en"]
+	let anzahldersprachen = 0
+	ergebnis = langs.map(e => anzahldersprachen++)
+	if ((message.content.startsWith("!info") && message.content.endsWith("!info")) || message.content.startsWith("!bot") && message.content.endsWith("!bot")) return message.reply("Anzahl der Sprachen: " + anzahldersprachen)
 })
