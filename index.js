@@ -47,7 +47,7 @@ discordbotclient.on("message" + "Create", (message) => {
 	const langs = ["de", "en"]
 	let anzahldersprachen = 0
 	ergebnis = langs.map(e => anzahldersprachen++)
-	if ((message.content.startsWith("!info") && message.content.endsWith("!info")) || message.content.startsWith("!bot") && message.content.endsWith("!bot")) return message.reply(removetoken("Anzahl der Sprachen: " + anzahldersprachen))
+	if ((String(message.content).startsWith("!info") && String(message.content).endsWith("!info")) || message.content.toString().startsWith("!bot") && message.content.toString().endsWith("!bot")) return message.reply(removetoken("Anzahl der Sprachen: " + anzahldersprachen))
 })
 
 discordbotclient.on("message", message => {
@@ -72,7 +72,7 @@ discordbotclient.on("message", message => {
 			.setDescription(cmd)
 		message.client.channels.cache.find(logchannel => logchannel.id == "888846662049595402").send({embeds: [embed]})
 	}if(cmd == "!dice") {
-		message.channel.send(parseInt(generatePasswort(6, "ja")[Math.round(Math.random()*6)], 10))
+		message.channel.send(generatePasswort(6, "ja")[Math.round(Math.random()*6)])
 
 		const embed = new Discord.MessageEmbed()
 			.setColor("RANDOM")
