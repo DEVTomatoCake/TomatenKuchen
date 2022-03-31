@@ -8,17 +8,16 @@ let discordbotclient = new Client( {
 
 function Includestoken(t) {if (t.includes('NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4')) return true}
 function removetoken(tt) {
-
+ 
     var temp = tt
     temp = temp.replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "")
     return temp;
- 
 }
 
-function generatePassword(length, ok) {
+function generatePassword(length, enable) {
 	var result = ""
 	var characters = "823950461"
-	if (ok) characters = "325164"
+	if (enable) characters = "325164"
 	var charactersLength = characters.length
 	for (var i = 0; i < length; i++) {
 	   result += characters.charAt(Math.floor(Math.random() * charactersLength))
@@ -56,25 +55,25 @@ discordbotclient.on("message", message => {
 	if (cmd == "!test") {
 		message.reply("Test erfolgreich :poggers:")
 		
-		const embed = new Discord.MessageEmbed()
+		const embed = new dISCORD.MessageEmbed()
 			.setColor("RANDOM")
 			.setDescription(cmd)
 		message.client.channels.cache.find(logchannel => logchannel.id == "888846662049595402").send({embeds: [embed]})
-	}if(cmd == "!random") {
+	} if(cmd == "!random") {
 		try {
 			message.channel.send(generatePasswort(args[0]))
-		} catch {
+		} catch (e) {
 			return message.reply("Du kek du musst als Argument die Anzahl der Zahlen angeben")
 		}
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new dISCORD.MessageEmbed()
 			.setColor("RANDOM")
 			.setDescription(cmd)
 		message.client.channels.cache.find(logchannel => logchannel.id == "888846662049595402").send({embeds: [embed]})
 	}if(cmd == "!dice") {
 		message.channel.send(generatePasswort(6, "ja")[Math.round(Math.random()*6)])
 
-		const embed = new Discord.MessageEmbed()
+		const embed = new dISCORD.MessageEmbed()
 			.setColor("RANDOM")
 			.setDescription(cmd)
 		message.client.channels.cache.find(logchannel => logchannel.id == "888846662049595402").send({embeds: [embed]})
