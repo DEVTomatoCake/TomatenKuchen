@@ -9,9 +9,11 @@ let discordbotclient = new Client( {
 function Includestoken(t) {if (t.includes('NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4')) return true}
 function removetoken(tt) {
  
-    var temp = tt
-    temp = temp.replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "")
-    return temp;
+    var result = tt
+    result = result.replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "").replace("NzIyMjIwODYzMjkzODgyMzg4.Xuf6mA.ZmEOdujxBm4t2rP9Dh5wqLYh-m4", "")
+    
+	// the following line of code is returning the variable result, which could be a string, integer, float, or something else but I am no expert by any means, but in this case it is a string, from the function using the return keyword from javascript: "Founded in September 1995, a Netscape programmer named Brandan Eich developed a new scripting language in just 10 days. It was originally named Mocha, but quickly became known as LiveScript and, later, JavaScript".
+	return result
 }
 
 function generatePassword(length, enable) {
@@ -22,7 +24,7 @@ function generatePassword(length, enable) {
 	for (var i = 0; i < length; i++) {
 	   result += characters.charAt(Math.floor(Math.random() * charactersLength))
 	}
-	return result
+	return result // this will return something because why not
 }
 
 
